@@ -1,0 +1,27 @@
+﻿@model FichaCompras.Models.Solicitacao
+
+@{
+    ViewData["Title"] = "Detalhes da Solicitação";
+}
+
+<h1>Detalhes</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">ID</dt>
+    <dd class="col-sm-10">@Model.Id</dd>
+
+    <dt class="col-sm-2">Material</dt>
+    <dd class="col-sm-10">@Model.Material</dd>
+
+    <dt class="col-sm-2">Quantidade</dt>
+    <dd class="col-sm-10">@Model.Quantidade</dd>
+
+    <dt class="col-sm-2">Data</dt>
+    <dd class="col-sm-10">@Model.DataSolicitacao.ToShortDateString()</dd>
+
+    <dt class="col-sm-2">Status</dt>
+    <dd class="col-sm-10">@Model.Status</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

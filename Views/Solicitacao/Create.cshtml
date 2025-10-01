@@ -1,0 +1,31 @@
+﻿@model FichaCompras.Models.Solicitacao
+
+@{
+    ViewData["Title"] = "Nova Solicitação";
+}
+
+<h1>Criar Solicitação</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Material" class="control-label"></label>
+        <input asp-for="Material" class="form-control" />
+        <span asp-validation-for="Material" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quantidade" class="control-label"></label>
+        <input asp-for="Quantidade" class="form-control" />
+        <span asp-validation-for="Quantidade" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataSolicitacao" class="control-label"></label>
+        <input asp-for="DataSolicitacao" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <input asp-for="Status" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>

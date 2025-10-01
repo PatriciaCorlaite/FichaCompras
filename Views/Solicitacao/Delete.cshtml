@@ -1,0 +1,30 @@
+﻿@model FichaCompras.Models.Solicitacao
+
+@{
+    ViewData["Title"] = "Excluir Solicitação";
+}
+
+<h1>Excluir Solicitação</h1>
+
+<h4>Tem certeza que deseja excluir esta solicitação?</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">Material</dt>
+    <dd class="col-sm-10">@Model.Material</dd>
+
+    <dt class="col-sm-2">Quantidade</dt>
+    <dd class="col-sm-10">@Model.Quantidade</dd>
+
+    <dt class="col-sm-2">Data</dt>
+    <dd class="col-sm-10">@Model.DataSolicitacao.ToShortDateString()</dd>
+
+    <dt class="col-sm-2">Status</dt>
+    <dd class="col-sm-10">@Model.Status</dd>
+</dl>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FichaCompras.Models.Solicitacao>
+
+@{
+    ViewData["Title"] = "Lista de Solicitações";
+}
+
+<h1 class="mb-4">Lista de Solicitações</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">+ Nova Solicitação</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Material</th>
+            <th>Quantidade</th>
+            <th>Data</th>
+            <th style="width: 200px;">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Material</td>
+                    <td>@item.Quantidade</td>
+                    <td>@item.DataSolicitacao.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalhes</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">Nenhuma solicitação encontrada.</td>
+            </tr>
+        }
+    </tbody>
+</table>
